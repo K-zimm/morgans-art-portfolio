@@ -1,8 +1,8 @@
-require('dotenv').config()
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Creative Portfolio`,
+    title: `MorgZ Creative`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,4 +15,4 @@ module.exports = {
       },
     },
   ],
-}
+};
