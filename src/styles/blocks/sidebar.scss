@@ -1,0 +1,125 @@
+.sidebar__title {
+  margin: -50px -40px 0px 0px;
+  transform: rotate(-30deg);
+  text-align: center;
+
+  @media screen and (max-width: 899px) {
+    margin: -30px -20px 0px 0px;
+  }
+
+  a {
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 2px;
+
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+      #ffb900 0px 0px 20px, #ffb900 0px 0px 30px, #ffb900 0px 0px 40px,
+      #ffb900 0px 0px 50px, #ffb900 0px 0px 75px;
+    color: #fff;
+
+    transition: all 0.8s ease;
+
+    @media screen and (max-width: 899px) {
+      font-size: 24px;
+    }
+
+    &:hover {
+      text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+        #ff7730 0px 0px 20px, #ff7730 0px 0px 30px, #ff7730 0px 0px 40px,
+        #ff7730 0px 0px 50px, #ff7730 0px 0px 75px;
+    }
+  }
+}
+
+.sidebar__sunflower {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  top: 15px;
+  left: 15px;
+
+  @media screen and (max-width: 899px) {
+    width: 3rem;
+    height: 3rem;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+.sidebar__portrait {
+  margin-top: -40px;
+  margin-right: -40px;
+  @media screen and (max-width: 899px) {
+    margin-top: -20px;
+    margin-right: -20px;
+  }
+}
+
+.sidebar__intro {
+  color: $color-grey-light-1;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sidebar__menu {
+  margin-top: 85px;
+  margin-bottom: 20px;
+
+  li {
+    a {
+      display: inline-block;
+      color: $color-secondary-light;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: all 0.5s ease;
+      padding: 5px 0;
+      position: relative;
+
+      &:after {
+        content: '';
+        width: 0px;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $color-secondary-light;
+        transition: all 0.5s ease;
+      }
+
+      &:hover {
+        padding: 5px 10px;
+      }
+
+      &:hover:after {
+        width: 100%;
+      }
+    }
+
+    &.is-active a {
+      font-weight: bold;
+      color: $active-color;
+    }
+  }
+}
+
+.sidebar__social {
+  margin-bottom: 20px;
+}
+
+.sidebar__copyright {
+  color: $light-body-color;
+  font-size: 13px;
+}

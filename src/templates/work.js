@@ -10,7 +10,9 @@ export default ({ data }) => (
     <article className='sheet'>
       <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
       <div className='sheet__inner'>
-        <Link to='/'>← Back</Link>
+        <Link to='/' className='sheet__back-btn'>
+          ← Back
+        </Link>
         <h1 className='sheet__title'>{data.datoCmsWork.title}</h1>
         <p className='sheet__lead'>{data.datoCmsWork.excerpt}</p>
         <div className='sheet__slider'>
@@ -58,8 +60,8 @@ export const query = graphql`
       }
       coverImage {
         url
-        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsSizes
+        fluid(maxWidth: 1000, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid_noBase64
         }
       }
     }

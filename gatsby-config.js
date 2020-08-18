@@ -2,11 +2,13 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `MorgZ Creative`,
+    title: `Earthwalker Design`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-datocms`,

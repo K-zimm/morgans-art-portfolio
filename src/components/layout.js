@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { StaticQuery, graphql } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Sunflower from '../images/sunflower.svg';
 
 import '../styles/index.sass';
 
@@ -60,13 +61,23 @@ const TemplateWrapper = ({ children }) => {
           />
           <div className='container__sidebar'>
             <div className='sidebar'>
-              <h1 className='sidebar__title'>
-                <Link to='/'>{data.datoCmsSite.globalSeo.siteName}</Link>
-              </h1>
+              <img
+                src={Sunflower}
+                alt='Sunflower'
+                className='sidebar__sunflower'
+              />
               <Img
                 fluid={data.datoCmsHome.portrait.fluid}
                 className='sidebar__portrait'
               />
+              <h1 className='sidebar__title'>
+                <Link to='/'>{data.datoCmsSite.globalSeo.siteName}</Link>
+              </h1>
+              <ul className='sidebar__menu'>
+                <li>
+                  <Link to='/'>Home</Link>
+                </li>
+              </ul>
               <div
                 className='sidebar__intro'
                 dangerouslySetInnerHTML={{
@@ -74,14 +85,6 @@ const TemplateWrapper = ({ children }) => {
                     data.datoCmsHome.introTextNode.childMarkdownRemark.html,
                 }}
               />
-              <ul className='sidebar__menu'>
-                <li>
-                  <Link to='/'>Home</Link>
-                </li>
-                <li>
-                  <Link to='/about'>About</Link>
-                </li>
-              </ul>
               <p className='sidebar__social'>
                 {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
                   <a
