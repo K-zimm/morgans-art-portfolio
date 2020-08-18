@@ -49,12 +49,8 @@
 }
 
 .sidebar__portrait {
-  margin-top: -40px;
-  margin-right: -40px;
-  @media screen and (max-width: 899px) {
-    margin-top: -20px;
-    margin-right: -20px;
-  }
+  border-radius: 500px;
+  width: 80%;
 }
 
 .sidebar__intro {
@@ -74,6 +70,9 @@ p {
 .sidebar__menu {
   margin-top: 85px;
   margin-bottom: 20px;
+  @media screen and (max-width: 899px) {
+    margin-top: 40px;
+  }
 
   li {
     a {
