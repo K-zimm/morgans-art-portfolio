@@ -41,7 +41,11 @@ const TemplateWrapper = ({ children }) => {
                 ...GatsbyDatoCmsSizes
               }
             }
-            copyright
+            copyrightNode {
+              internal {
+                content
+              }
+            }
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
@@ -97,9 +101,12 @@ const TemplateWrapper = ({ children }) => {
                   </a>
                 ))}
               </p>
-              <div className='sidebar__copyright'>
-                {data.datoCmsHome.copyright}
-              </div>
+              <div
+                className='sidebar__copyright'
+                dangerouslySetInnerHTML={{
+                  __html: data.datoCmsHome.copyrightNode.internal.content,
+                }}
+              />
             </div>
           </div>
           <div className='container__body'>

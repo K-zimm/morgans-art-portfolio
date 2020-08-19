@@ -121,4 +121,8 @@ p {
 .sidebar__copyright {
   color: $light-body-color;
   font-size: 13px;
+  a {
+    text-decoration: none;
+    color: $color-secondary-light;
+  }
 }
