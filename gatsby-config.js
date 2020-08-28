@@ -16,5 +16,12 @@ module.exports = {
         apiToken: process.env.DATO_API_TOKEN,
       },
     },
+    {
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+        apiKey: process.env.GATSBY_SNIPCART_APIKEY,
+        autopop: false,
+      },
+    },
   ],
 };

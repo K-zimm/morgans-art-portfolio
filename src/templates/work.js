@@ -1,44 +1,57 @@
 import React from 'react';
-import Slider from 'react-slick';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 
-export default ({ data }) => (
-  <Layout>
-    <article className='sheet'>
-      <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
-      <div className='sheet__inner'>
-        <Link to='/' className='sheet__back-btn'>
-          ← Back
-        </Link>
-        <h1 className='sheet__title'>{data.datoCmsWork.title}</h1>
-        <p className='sheet__lead'>{data.datoCmsWork.excerpt}</p>
-        <div className='sheet__slider'>
-          <Slider infinite={true} slidesToShow={2} arrows>
-            {data.datoCmsWork.gallery.map(({ fluid }) => (
-              <img
-                alt={data.datoCmsWork.title}
-                key={fluid.src}
-                src={fluid.src}
-              />
-            ))}
-          </Slider>
+function ForSale(props) {
+  const productImage = props.productImage;
+  const productDescription = props.productDescription;
+  const price = props.price;
+
+  return (
+    <div>
+      <h2>This Drawing Is For Sale!</h2>
+      <Img fluid={productImage} />
+      <div
+        dangerouslySetInnerHTML={{
+          __html: productDescription,
+        }}
+      />
+      <div>${price}</div>
+    </div>
+  );
+}
+
+const SingleWork = ({ data }) => {
+  const isForSale = data.datoCmsWork.forSale;
+  return (
+    <Layout>
+      <article className='sheet'>
+        <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
+        <div className='sheet__inner'>
+          <Link to='/' className='sheet__back-btn'>
+            ← Back
+          </Link>
+          <h1 className='sheet__title'>{data.datoCmsWork.title}</h1>
+          <p className='sheet__lead'>{data.datoCmsWork.excerpt}</p>
+          <div className='sheet__gallery'>
+            <Img fluid={data.datoCmsWork.coverImage.fluid} />
+          </div>
         </div>
-        <div
-          className='sheet__body'
-          dangerouslySetInnerHTML={{
-            __html: data.datoCmsWork.descriptionNode.childMarkdownRemark.html,
-          }}
-        />
-        <div className='sheet__gallery'>
-          <Img fluid={data.datoCmsWork.coverImage.fluid} />
-        </div>
-      </div>
-    </article>
-  </Layout>
-);
+        {isForSale && (
+          <ForSale
+            productImage={data.datoCmsWork.coverImage.fluid}
+            productDescription={data.datoCmsWork.productDescription}
+            price={data.datoCmsWork.price}
+          />
+        )}
+      </article>
+    </Layout>
+  );
+};
+
+export default SingleWork;
 
 export const query = graphql`
   query WorkQuery($slug: String!) {
@@ -48,22 +61,21 @@ export const query = graphql`
       }
       title
       excerpt
-      gallery {
-        fluid(maxWidth: 200, imgixParams: { fm: "jpg", auto: "compress" }) {
-          src
-        }
-      }
-      descriptionNode {
-        childMarkdownRemark {
-          html
-        }
-      }
       coverImage {
         url
         fluid(maxWidth: 1000, imgixParams: { fm: "jpg", auto: "compress" }) {
           ...GatsbyDatoCmsFluid_noBase64
         }
       }
+      forSale
+      productImage {
+        url
+        fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid_noBase64
+        }
+      }
+      price
+      productDescription
     }
   }
 `;
