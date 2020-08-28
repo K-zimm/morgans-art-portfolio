@@ -23,5 +23,11 @@ module.exports = {
         autopop: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-W7DR82N',
+      },
+    },
   ],
 };
