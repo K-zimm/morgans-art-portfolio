@@ -5,20 +5,36 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 
 function ForSale(props) {
+  const slug = props.slug;
+  const title = props.productTitle;
   const productImage = props.productImage;
   const productDescription = props.productDescription;
   const price = props.price;
 
   return (
-    <div>
-      <h2>This Drawing Is For Sale!</h2>
-      <Img fluid={productImage} />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: productDescription,
-        }}
-      />
-      <div>${price}</div>
+    <div className='card-forSale'>
+      <h2 className='card-forSale__title'>
+        The original drawing of {title} is for sale!
+      </h2>
+      <Img fluid={productImage} className='card-forSale__image' />
+      <div className='card-forSale__info'>
+        <div
+          className='card-forSale__desc'
+          dangerouslySetInnerHTML={{
+            __html: productDescription,
+          }}
+        />
+        <div className='card-forSale__price'>${price}</div>
+        <button
+          className='snipcart-add-item card-forSale__btn'
+          data-item-id={slug}
+          data-item-price={price}
+          data-item-name={title}
+          data-item-url={`https://earthwalker.design/works/${slug}`}
+        >
+          Buy Now
+        </button>
+      </div>
     </div>
   );
 }
@@ -41,6 +57,8 @@ const SingleWork = ({ data }) => {
         </div>
         {isForSale && (
           <ForSale
+            slug={data.datoCmsWork.slug}
+            productTitle={data.datoCmsWork.title}
             productImage={data.datoCmsWork.coverImage.fluid}
             productDescription={data.datoCmsWork.productDescription}
             price={data.datoCmsWork.price}
@@ -59,6 +77,7 @@ export const query = graphql`
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
+      slug
       title
       excerpt
       coverImage {

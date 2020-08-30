@@ -1,0 +1,65 @@
+.card-forSale {
+  width: 40%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #fff;
+  @media screen and (max-width: 1225px) {
+    max-width: 700px;
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  &__title {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  &__image {
+    width: 100%;
+    @media screen and (max-width: 1225px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 15px;
+    font-size: 18px;
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  &__price {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin-bottom: 15px;
+    color: $color-secondary-dark;
+  }
+
+  &__btn {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: rgb(255, 185, 0);
+    background: linear-gradient(
+      184deg,
+      rgba(255, 185, 0, 1) 0%,
+      rgba(255, 119, 48, 1) 100%
+    );
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    box-shadow: 0 0 5px #ccc;
+    cursor: pointer;
+  }
+}
