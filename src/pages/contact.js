@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { navigate } from 'gatsby-link';
-import graphql from 'gatsby';
+import { graphql } from 'gatsby';
 
 const encode = (data) => {
   return Object.keys(data)
