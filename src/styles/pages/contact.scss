@@ -1,0 +1,69 @@
+.contact {
+  background-image: url('/images/sunflowers-field.jpg');
+  padding: 60px;
+  min-height: 100vh;
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+  &__title {
+    color: $color-secondary-light;
+    font-size: 56px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  &__formTitle {
+    font-size: 28px;
+  }
+  form {
+    width: 100%;
+  }
+  input,
+  textarea {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: 2px solid $color-secondary-light;
+    border-radius: 5px;
+    width: 80%;
+    margin-bottom: 1rem;
+    color: #000;
+    font-size: 18px;
+    transition: all 1s;
+    &:focus {
+      outline: none;
+      border-color: $color-primary-light;
+    }
+  }
+  button {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0.5rem 1.2rem;
+    background-image: linear-gradient(
+      131deg,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 10px rgb(165, 165, 165);
+    }
+    &:active {
+      transform: translateY(0px);
+      box-shadow: 0 0 5px #ccc;
+    }
+  }
+}
