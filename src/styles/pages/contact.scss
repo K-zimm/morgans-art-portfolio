@@ -2,6 +2,9 @@
   background-image: url('/images/sunflowers-field.jpg');
   padding: 60px;
   min-height: 100vh;
+  @media screen and (max-width: 930px) {
+    padding: 30px;
+  }
   &__inner {
     max-width: 900px;
     margin: 0 auto;
@@ -16,6 +19,8 @@
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
+    line-height: 1.2em;
+    margin-bottom: 10px;
   }
   &__formTitle {
     font-size: 28px;

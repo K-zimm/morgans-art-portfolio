@@ -11,7 +11,7 @@
       margin: 60px;
     }
     @media screen and (max-width: 930px) {
-      margin: 15px;
+      margin: 30px;
     }
   }
   &__image-row {
@@ -41,6 +41,7 @@
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
+    line-height: 1.2em;
   }
   &__lead {
     font-size: 20px;
