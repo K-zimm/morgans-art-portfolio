@@ -56,7 +56,7 @@ const Contact = ({ data }) => {
               </a>
             ))}
           </p>
-          <h2 className='contact__formTitle'>Request A Commision</h2>
+          <h2 className='contact__formTitle'>Request A Commission</h2>
           <form
             className='contact__form'
             name='commision-request'

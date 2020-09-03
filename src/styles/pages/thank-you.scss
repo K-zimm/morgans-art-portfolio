@@ -1,0 +1,39 @@
+.thankYou {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('/images/sunflowers-field.jpg');
+  &__inner {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 25px;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+
+    @media screen and (max-width: 1370px) {
+      margin: 60px;
+    }
+    @media screen and (max-width: 930px) {
+      margin: 30px;
+    }
+  }
+  &__title {
+    color: $color-secondary-light;
+    font-size: 56px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.2em;
+    margin-bottom: 10px;
+  }
+  &__content {
+    font-size: 22px;
+  }
+  &__content a {
+    color: $color-secondary-dark;
+    text-decoration: none;
+    font-weight: 700;
+  }
+}
