@@ -38,10 +38,17 @@
   &__shipping-info,
   &__guarantee-info {
     display: flex;
-    align-items: center;
+    align-items: start;
     margin-bottom: 15px;
     img {
       margin-right: 15px;
+
+      @media screen and (max-width: 500px) {
+        width: 30px;
+      }
+    }
+    strong {
+      font-weight: 700;
     }
   }
 
@@ -64,6 +71,7 @@
       rgba(255, 119, 48, 1) 100%
     );
     padding: 20px;
+    margin-bottom: 30px;
     border: none;
     border-radius: 10px;
     color: #000;
