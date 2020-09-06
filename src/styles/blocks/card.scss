@@ -1,0 +1,69 @@
+.card {
+  box-shadow: 0 0 5px #ccc;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px #ccc;
+  }
+
+  &__banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 20px;
+    border-radius: 0px 20px 0px 5px;
+    background-color: $color-primary-light;
+    z-index: 500;
+  }
+
+  &__image {
+    display: block;
+    position: relative;
+    padding: 20px 20px 0 20px;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__caption {
+    background: rgb(255, 185, 0);
+    background: linear-gradient(
+      184deg,
+      rgba(255, 185, 0, 1) 0%,
+      rgba(255, 119, 48, 1) 100%
+    );
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: -15px;
+  }
+
+  &__title {
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      color: $dark-body-color;
+
+      &:hover {
+        border-bottom: dotted 1px;
+      }
+    }
+  }
+
+  &__description {
+    color: $color-white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+}

@@ -24,9 +24,7 @@
 
   &__image {
     width: 100%;
-    @media screen and (max-width: 1225px) {
-      margin-bottom: 15px;
-    }
+    margin-bottom: 15px;
   }
 
   &__desc {
@@ -34,6 +32,16 @@
     font-size: 18px;
     strong {
       font-weight: 700;
+    }
+  }
+
+  &__shipping-info,
+  &__guarantee-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    img {
+      margin-right: 15px;
     }
   }
 

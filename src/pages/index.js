@@ -19,12 +19,9 @@ const IndexPage = ({ data }) => {
                   <Img fluid={work.coverImage.fluid} />
                 </Link>
                 <figcaption className='card__caption'>
-                  <h6 className='card__title'>
+                  <h3 className='card__title'>
                     <Link to={`/works/${work.slug}`}>{work.title}</Link>
-                  </h6>
-                  <div className='card__description'>
-                    <p>{work.excerpt}</p>
-                  </div>
+                  </h3>
                 </figcaption>
               </figure>
             </div>
@@ -45,7 +42,6 @@ export const query = graphql`
           id
           title
           slug
-          excerpt
           coverImage {
             fluid(maxWidth: 300, imgixParams: { fm: "png", auto: "compress" }) {
               ...GatsbyDatoCmsFluid_noBase64

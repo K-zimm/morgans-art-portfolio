@@ -1,3 +1,32 @@
+.snipcart-checkout
+    display: block
+    margin: 0 15px 20px auto
+    padding: 5px
+    background: none
+    border: none
+    font-size: 20px
+    text-transform: uppercase
+    position: relative
+    cursor: pointer
+    
+    img
+      height: 25px
+      margin-right: 5px
+
+    .snipcart-items-count
+      position: absolute
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 12px
+      color: #fff
+      bottom: 0
+      left: 0
+      width: 18px
+      height: 18px
+      background-color: $color-secondary-dark
+      border-radius: 50%
+
 @media screen and (max-width: 899px)
   .container__sidebar
     box-sizing: border-box
@@ -20,9 +49,11 @@
   .container__body
     transform: translate3d(0px, 0, 0)
     transition: transform 0.2s ease-in-out
+    background-color: #f4f4f4
 
     .container.is-open &
       transform: translate3d(200px, 0, 0)
+
 
 @media screen and (min-width: 900px)
   .container
@@ -45,4 +76,9 @@
     flex: 1
 
   .container__body
-    background-color: white
+    background-color: #f4f4f4
+
+  .snipcart-checkout
+    margin: 10px 40px 0px auto;
+
+

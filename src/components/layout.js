@@ -137,6 +137,11 @@ const TemplateWrapper = ({ children }) => {
                 </div>
               </div>
             </div>
+            <button class='snipcart-checkout'>
+              <img src='/images/shopping-cart-icon.png' alt='Shopping cart' />
+              Cart
+              <span class='snipcart-items-count'></span>
+            </button>
             {children}
           </div>
         </div>
