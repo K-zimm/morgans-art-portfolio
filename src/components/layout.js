@@ -137,10 +137,10 @@ const TemplateWrapper = ({ children }) => {
                 </div>
               </div>
             </div>
-            <button class='snipcart-checkout'>
+            <button className='snipcart-checkout'>
               <img src='/images/shopping-cart-icon.png' alt='Shopping cart' />
               Cart
-              <span class='snipcart-items-count'></span>
+              <span className='snipcart-items-count'></span>
             </button>
             {children}
           </div>
