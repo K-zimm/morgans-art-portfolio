@@ -48,12 +48,6 @@ export const query = graphql`
             }
           }
           forSale
-          productImage {
-            url
-            fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsFluid_noBase64
-            }
-          }
           price
           productDescription
         }
