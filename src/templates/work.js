@@ -8,7 +8,6 @@ function ForSale(props) {
   const slug = props.slug;
   const title = props.productTitle;
   const productImageUrl = props.productImageUrl;
-  const productImageFluid = props.productImageFluid;
   const productShortDescription = props.productShortDescription;
   const productDescription = props.productDescription;
   const price = props.price;
@@ -18,7 +17,6 @@ function ForSale(props) {
       <h2 className='card-forSale__title'>
         Print of {title} available for purchase!
       </h2>
-      <Img fluid={productImageFluid} className='card-forSale__image' />
       <div className='card-forSale__info'>
         <div
           className='card-forSale__desc'
@@ -90,8 +88,7 @@ const SingleWork = ({ data }) => {
           <ForSale
             slug={data.datoCmsWork.slug}
             productTitle={data.datoCmsWork.title}
-            productImageUrl={data.datoCmsWork.productImage.url}
-            productImageFluid={data.datoCmsWork.productImage.fluid}
+            productImageUrl={data.datoCmsWork.coverImage.url}
             productShortDescription={data.datoCmsWork.productShortDescription}
             productDescription={data.datoCmsWork.productDescription}
             price={data.datoCmsWork.price}
@@ -119,12 +116,6 @@ export const query = graphql`
         }
       }
       forSale
-      productImage {
-        url
-        fluid(maxWidth: 500, imgixParams: { fm: "jpg", auto: "compress" }) {
-          ...GatsbyDatoCmsFluid_noBase64
-        }
-      }
       price
       productShortDescription
       productDescription

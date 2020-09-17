@@ -38,7 +38,7 @@ const TemplateWrapper = ({ children }) => {
                 maxWidth: 200
                 imgixParams: { fm: "png", auto: "compress" }
               ) {
-                ...GatsbyDatoCmsSizes
+                ...GatsbyDatoCmsSizes_noBase64
               }
             }
             copyrightNode {
