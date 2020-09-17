@@ -65,18 +65,10 @@ const TemplateWrapper = ({ children }) => {
           />
           <div className='container__sidebar'>
             <div className='sidebar'>
-              <img
-                src={Sunflower}
-                alt='Sunflower'
-                className='sidebar__sunflower'
-              />
               <Img
                 fluid={data.datoCmsHome.portrait.fluid}
-                className='sidebar__portrait'
+                className='sidebar__logo'
               />
-              <h1 className='sidebar__title'>
-                <Link to='/'>{data.datoCmsSite.globalSeo.siteName}</Link>
-              </h1>
               <ul className='sidebar__menu'>
                 <li>
                   <Link to='/' activeClassName='active-link'>
