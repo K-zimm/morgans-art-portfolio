@@ -14,7 +14,19 @@ const IndexPage = ({ data }) => {
           return (
             <div key={work.id} className='showcase__item'>
               <figure className='card'>
-                {forSale && <div className='card__banner'>Buy Now</div>}
+                {forSale && (
+                  <button
+                    className='snipcart-add-item card__banner'
+                    data-item-id={work.slug}
+                    data-item-image={work.coverImage.url}
+                    data-item-price={work.price}
+                    data-item-name={work.title}
+                    data-item-description={work.productShortDescription}
+                    data-item-url={`https://earthwalker.design/works/${work.slug}`}
+                  >
+                    Buy Now
+                  </button>
+                )}
                 <Link to={`/works/${work.slug}`} className='card__image'>
                   <Img fluid={work.coverImage.fluid} />
                 </Link>
@@ -43,13 +55,14 @@ export const query = graphql`
           title
           slug
           coverImage {
+            url
             fluid(maxWidth: 300, imgixParams: { fm: "png", auto: "compress" }) {
               ...GatsbyDatoCmsFluid_noBase64
             }
           }
           forSale
           price
-          productDescription
+          productShortDescription
         }
       }
     }

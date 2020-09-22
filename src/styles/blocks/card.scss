@@ -19,9 +19,17 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 5px 20px;
+    border: none;
     border-radius: 0px 20px 0px 5px;
     background-color: $color-primary-light;
     z-index: 9;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
   }
 
   &__image {

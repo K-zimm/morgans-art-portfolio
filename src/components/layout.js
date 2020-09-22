@@ -12,6 +12,14 @@ import '../styles/index.sass';
 
 const TemplateWrapper = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const [
+    items,
+    updateItemTotal = (qty) => {
+      this.setState({ items: qty });
+    },
+  ] = useState(0);
+
   return (
     <StaticQuery
       query={graphql`
