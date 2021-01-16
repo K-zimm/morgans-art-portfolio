@@ -1,8 +1,8 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -14,8 +14,15 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allShopifyProduct {
+          edges {
+            node {
+              handle
+            }
+          }
+        }
       }
-    `).then(result => {
+    `).then((result) => {
       result.data.allDatoCmsWork.edges.map(({ node: work }) => {
         createPage({
           path: `works/${work.slug}`,
@@ -23,9 +30,20 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             slug: work.slug,
           },
-        })
-      })
-      resolve()
-    })
-  })
-}
+        });
+      });
+      result.data.allShopifyProduct.edges.forEach(({ node }) => {
+        createPage({
+          path: `/product/${node.handle}/`,
+          component: path.resolve(`./src/templates/products/index.js`),
+          context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            handle: node.handle,
+          },
+        });
+      });
+      resolve();
+    });
+  });
+};

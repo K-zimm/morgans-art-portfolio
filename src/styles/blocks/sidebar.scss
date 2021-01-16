@@ -1,3 +1,31 @@
+.nav-cart {
+  display: block;
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  cursor: pointer;
+
+  img {
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  &__items-count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    top: 9px;
+    left: 13px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
 .sidebar__title {
   margin: -50px -40px 0px 0px;
   transform: rotate(-30deg);

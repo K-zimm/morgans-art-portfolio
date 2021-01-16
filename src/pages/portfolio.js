@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-component';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 
-const IndexPage = ({ data }) => {
+const PortfolioPage = ({ data }) => {
   return (
     <Layout>
       <Masonry className='showcase'>
@@ -29,10 +29,10 @@ const IndexPage = ({ data }) => {
   );
 };
 
-export default IndexPage;
+export default PortfolioPage;
 
 export const query = graphql`
-  query IndexQuery {
+  query PortfolioQuery {
     allDatoCmsWork(sort: { fields: [position], order: ASC }) {
       edges {
         node {

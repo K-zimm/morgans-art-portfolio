@@ -1,8 +1,10 @@
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
     title: `Earthwalker Design`,
+    description: `Portfolio and online store containing artwork, products, and other creative works by Morgan Zimmer.`,
+    author: `Morgan Zimmer`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,16 +28,9 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-snipcartv3",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        apiKey: process.env.GATSBY_SNIPCART_APIKEY,
-        autopop: true,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-W7DR82N",
+        id: 'GTM-W7DR82N',
       },
     },
   ],
