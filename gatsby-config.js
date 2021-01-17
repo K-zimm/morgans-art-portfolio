@@ -19,15 +19,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-shopify`,
-      options: {
-        // The domain name of your Shopify shop.
-        shopName: `earthwalker-design.myshopify.com`,
-        // The storefront access token
-        accessToken: `df15017338b2e5ba08d52a9dcdca4ea8`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: 'GTM-W7DR82N',
