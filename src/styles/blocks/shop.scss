@@ -1,0 +1,10 @@
+.shop {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  
+  &__item {
+    width: calc(25% - 20px);
+    margin: 10px;
+  }
+}

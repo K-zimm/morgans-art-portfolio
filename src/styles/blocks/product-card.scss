@@ -1,0 +1,16 @@
+.product-card {
+  &__image {
+    display: block;
+    margin-bottom: 10px;  
+  }
+
+  &__title {
+    h3 {
+      font-size: 18px;
+      background: linear-gradient(180deg, rgba(255,185,0,1) 0%, rgba(255,119,48,1) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }    
+    text-decoration: none;
+  }
+}
