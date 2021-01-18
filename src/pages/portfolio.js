@@ -45,8 +45,6 @@ export const query = graphql`
               ...GatsbyDatoCmsFluid_noBase64
             }
           }
-          price
-          productShortDescription
         }
       }
     }
