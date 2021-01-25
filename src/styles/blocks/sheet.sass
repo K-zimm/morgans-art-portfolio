@@ -34,7 +34,14 @@
   margin-bottom: 30px
   font-weight: bold
   color: $dark-body-color
-  line-height: 1
+  line-height: 1.2
+
+.sheet__title--2
+  font-size: 26px
+  margin-bottom: 15px
+  font-weight: bold
+  color: $dark-body-color
+  line-height: 1.2
 
 .sheet__lead
   font-size: 16px
@@ -48,9 +55,24 @@
   box-shadow: 0 0 5px #ccc
   border-radius: 20px
   padding: 10px
+  margin-bottom: 15px
   .gatsby-image-wrapper
     border-radius: 10px
     background-color: #f4f4f4
+
+.sheet__tags
+  display: flex;
+  .sheet__tags--tag
+    display: inline-block
+    background: rgb(255,185,0)
+    background: linear-gradient(184deg, rgba(255,185,0,1) 0%, rgba(255,119,48,1) 100%)
+    padding: 10px
+    border-radius: 10px
+    margin: 5px
+    a
+      text-decoration: none
+      font-size: 16px    
+      color: #000
 
 .sheet__body
   color: $light-body-color
