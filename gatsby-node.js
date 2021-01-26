@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
     // Iterate through each post, putting all found tags into `tags`
     works.forEach((edge) => {
       if (_.get(edge, `node.tags`)) {
-        tags = tags.concat(edge.node.tags);
+        tags = tags.concat(edge.node.tags.split(', '));
       }
     });
     // Eliminate duplicate tags
@@ -49,11 +49,13 @@ exports.createPages = ({ graphql, actions }) => {
     // Make tag pages
     tags.forEach((tag) => {
       const tagPath = `tags/${_.kebabCase(tag)}/`;
+      tagRegex = `/${tag}/`;
 
       createPage({
         path: tagPath,
         component: path.resolve(`./src/templates/tags.js`),
         context: {
+          tagRegex,
           tag,
         },
       });
