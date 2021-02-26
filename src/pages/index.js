@@ -1,22 +1,49 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Masonry from 'react-masonry-component';
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
 
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Masonry className='showcase'>
+      <section
+        className="home-hero"
+        style={{
+          backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
+        }}
+      >
+        <Img
+          fluid={data.datoCmsHome.heroImage1.fluid}
+          className="home-hero__title"
+        />
+        <Img
+          fluid={data.datoCmsHome.heroImage2.fluid}
+          className="home-hero__img"
+        />
+        <div className="home-hero__content">
+          <div
+            className="home-hero__text"
+            dangerouslySetInnerHTML={{
+              __html: data.datoCmsHome.heroTextNode.childMarkdownRemark.html,
+            }}
+          />
+          <a href={data.datoCmsHome.buttonLink} className="home-hero__cta">
+            {data.datoCmsHome.buttonText}
+          </a>
+        </div>
+      </section>
+      <div className="featured-art">
+        <h2 className='featured-art__title'>Featured Art</h2>
+        <div className='featured-art__link'><Link to='/portfolio'>View All &gt;</Link></div>
         {data.allDatoCmsWork.edges.map(({ node: work }) => {
           return (
-            <div key={work.id} className='showcase__item'>
-              <figure className='card'>
-                <Link to={`/works/${work.slug}`} className='card__image'>
+            <div key={work.id} className="featured-art__item">
+              <figure className="card">
+                <Link to={`/works/${work.slug}`} className="card__image">
                   <Img fluid={work.coverImage.fluid} />
                 </Link>
-                <figcaption className='card__caption'>
-                  <h3 className='card__title'>
+                <figcaption className="card__caption">
+                  <h3 className="card__title">
                     <Link to={`/works/${work.slug}`}>{work.title}</Link>
                   </h3>
                 </figcaption>
@@ -24,7 +51,7 @@ const IndexPage = ({ data }) => {
             </div>
           );
         })}
-      </Masonry>
+      </div>
     </Layout>
   );
 };
@@ -33,7 +60,7 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
+    allDatoCmsWork(sort: { fields: [position], order: ASC }, limit: 3) {
       edges {
         node {
           id
@@ -41,10 +68,35 @@ export const query = graphql`
           slug
           coverImage {
             url
-            fluid(maxWidth: 300, imgixParams: { fm: "png", auto: "compress" }) {
+            fluid(maxWidth: 600, imgixParams: { fm: "png", auto: "compress" }) {
               ...GatsbyDatoCmsFluid_noBase64
             }
           }
+        }
+      }
+    }
+    datoCmsHome {
+      buttonText
+      buttonLink
+      heroImage1 {
+        fluid(maxWidth: 500, imgixParams: { fm: "png", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid_noBase64
+        }
+      }
+      heroImage2 {
+        fluid(maxWidth: 500, imgixParams: { fm: "png", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid_noBase64
+        }
+      }
+      heroBackground {
+        fluid {
+          ...GatsbyDatoCmsFluid_noBase64
+          src
+        }
+      }
+      heroTextNode {
+        childMarkdownRemark {
+          html
         }
       }
     }
