@@ -9,28 +9,28 @@ const IndexPage = ({ data }) => {
       <section
         className="home-hero"
         style={{
-          backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
+          //backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
         }}
       >
-        <Img
+        {/* <Img
           fluid={data.datoCmsHome.heroImage1.fluid}
           className="home-hero__title"
-        />
-        <Img
-          fluid={data.datoCmsHome.heroImage2.fluid}
-          className="home-hero__img"
-        />
+        /> */}
         <div className="home-hero__content">
           <div
             className="home-hero__text"
             dangerouslySetInnerHTML={{
-              __html: data.datoCmsHome.heroTextNode.childMarkdownRemark.html,
+              __html: data.datoCmsHome.heroText,
             }}
           />
-          <a href={data.datoCmsHome.buttonLink} className="home-hero__cta">
+          {/* <a href={data.datoCmsHome.buttonLink} className="home-hero__cta">
             {data.datoCmsHome.buttonText}
-          </a>
+          </a> */}
         </div>
+        <Img
+          fluid={data.datoCmsHome.heroImage2.fluid}
+          className="home-hero__img"
+        />        
       </section>
       <div className="featured-art">
         <h2 className='featured-art__title'>Featured Art</h2>
@@ -94,11 +94,7 @@ export const query = graphql`
           src
         }
       }
-      heroTextNode {
-        childMarkdownRemark {
-          html
-        }
-      }
+      heroText
     }
   }
 `;
