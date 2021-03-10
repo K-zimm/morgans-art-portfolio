@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require("lodash");
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -15,6 +15,13 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allDatoCmsCollection {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `).then((result) => {
     if (result.errors) {
@@ -23,6 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     const works = result.data.allDatoCmsWork.edges;
+    const collections = result.data.allDatoCmsCollection.edges;
 
     works.forEach((edge) => {
       createPage({
@@ -35,12 +43,22 @@ exports.createPages = ({ graphql, actions }) => {
       });
     });
 
+    collections.forEach((edge) => {
+      createPage({
+        path: `collections/${edge.node.slug}`,
+        component: path.resolve(`./src/templates/collections.js`),
+        context: {
+          CollectionSlug: edge.node.slug,
+        },
+      });
+    });
+
     // Tag pages:
     let tags = [];
     // Iterate through each post, putting all found tags into `tags`
     works.forEach((edge) => {
       if (_.get(edge, `node.tags`)) {
-        tags = tags.concat(edge.node.tags.split(', '));
+        tags = tags.concat(edge.node.tags.split(", "));
       }
     });
     // Eliminate duplicate tags

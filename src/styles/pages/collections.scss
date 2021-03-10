@@ -1,0 +1,17 @@
+.collection {
+  &__content {
+    padding: 30px 45px;
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      line-height: 1.2em;
+    }
+  }
+  &__products {
+    .card {
+      &__image {
+        padding-bottom: 15px;
+      }
+    }
+  }
+}

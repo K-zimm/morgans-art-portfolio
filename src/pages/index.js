@@ -7,34 +7,53 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <section
-        className="home-hero"
-        style={{
-          //backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
-        }}
+        className="hero"
+        style={
+          {
+            //backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
+          }
+        }
       >
-        {/* <Img
-          fluid={data.datoCmsHome.heroImage1.fluid}
-          className="home-hero__title"
-        /> */}
-        <div className="home-hero__content">
+        <Img fluid={data.datoCmsHome.heroImage2.fluid} className="hero__img" />
+        <div className="hero__content">
           <div
-            className="home-hero__text"
+            className="hero__text"
             dangerouslySetInnerHTML={{
               __html: data.datoCmsHome.heroText,
             }}
           />
-          {/* <a href={data.datoCmsHome.buttonLink} className="home-hero__cta">
+          <a href={data.datoCmsHome.buttonLink} className="hero__cta">
             {data.datoCmsHome.buttonText}
-          </a> */}
+          </a>
         </div>
-        <Img
-          fluid={data.datoCmsHome.heroImage2.fluid}
-          className="home-hero__img"
-        />        
+      </section>
+      <section
+        className="hero"
+        style={
+          {
+            //backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
+          }
+        }
+      >
+        <img
+          src="https://cdn.shopify.com/s/files/1/0521/0429/8677/products/GrlPwr_1024x1024.png?v=1615091654"
+          className="hero__img"
+        />
+        <div className="hero__content">
+          <div className="hero__text">
+            <h2>Women's History Month Stickers Available!</h2>
+            <p>Help us raise money for women in need this month.</p>
+          </div>
+          <Link to="/collections/womens-history-month" className="hero__cta">
+            Learn More
+          </Link>
+        </div>
       </section>
       <div className="featured-art">
-        <h2 className='featured-art__title'>Featured Art</h2>
-        <div className='featured-art__link'><Link to='/portfolio'>View All &gt;</Link></div>
+        <h2 className="featured-art__title">Featured Art</h2>
+        <div className="featured-art__link">
+          <Link to="/portfolio">View All &gt;</Link>
+        </div>
         {data.allDatoCmsWork.edges.map(({ node: work }) => {
           return (
             <div key={work.id} className="featured-art__item">
