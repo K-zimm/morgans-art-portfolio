@@ -10,7 +10,7 @@
     align-items: center;
     max-height: none;
   }
-  &__title {    
+  &__title {
     width: 250px;
     position: absolute !important;
     top: 30px;
@@ -22,15 +22,11 @@
     }
   }
   &__img {
-    width: 50%;    
-    margin-right: 10%;
-    order: 1;
+    width: 30%;
+    max-width: 250px;
     @media screen and (max-width: 1200px) {
-      width: 100%;
-      max-width: 500px;
-      order: 1;
-      margin-bottom: 15px;
-      margin-right: 0;
+      width: 50%;
+      max-width: 200px;
     }
   }
   &__content {
@@ -56,7 +52,40 @@
     }
     a {
       display: block;
-      color: $color-secondary-light;      
+      color: $color-secondary-light;
+    }
+  }
+  &__buy {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    &--price {
+      font-size: 42px;
+      font-weight: 700;
+      margin-right: 15px;
+      span {
+        font-size: 20px;
+      }
+    }
+    input {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      padding: 0.5rem;
+      background-color: transparent;
+      border: 2px solid $color-secondary-light;
+      border-radius: 5px;
+      width: 115px;
+      color: #000;
+      font-size: 18px;
+      transition: all 1s;
+      margin-right: 15px;
+      &:focus {
+        outline: none;
+        border-color: $color-primary-light;
+      }
+    }
+    .hero__cta {
+      margin-top: 0px;
     }
   }
   &__cta {
@@ -93,21 +122,39 @@
 
 .featured-art {
   padding: 45px 30px;
-  display: flex;
-  flex-wrap: wrap;
+  .showcase {
+    padding: 0 0 15px 0;
+  }
   &__title {
     font-size: 30px;
     margin-bottom: 15px;
-    width: 100%;
+    margin-left: 1.5%;
   }
   &__link {
-    width: 100%;
     margin-bottom: 30px;
+    margin-left: 1.5%;
     a {
-      color: $color-secondary-dark;
-      transition: all .3s ease-in;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 0.5rem 1.2rem;
+      background-color: #000;
+      border: none;
+      border-radius: 5px;
+      color: $color-secondary-light;
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      display: inline-block;
       &:hover {
-        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      }
+      &:active {
+        transform: translateY(0px);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       }
     }
   }

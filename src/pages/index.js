@@ -2,8 +2,15 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
+import Masonry from "react-masonry-component";
 
 const IndexPage = ({ data }) => {
+  const [state, setState] = React.useState({});
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
   return (
     <Layout>
       <section
@@ -14,7 +21,10 @@ const IndexPage = ({ data }) => {
           }
         }
       >
-        <Img fluid={data.datoCmsHome.heroImage2.fluid} className="hero__img" />
+        <Img
+          fluid={data.datoCmsHome.heroImage2.fluid}
+          className="hero__img home-hero__img"
+        />
         <div className="hero__content">
           <div
             className="hero__text"
@@ -22,54 +32,52 @@ const IndexPage = ({ data }) => {
               __html: data.datoCmsHome.heroText,
             }}
           />
-          <a href={data.datoCmsHome.buttonLink} className="hero__cta">
-            {data.datoCmsHome.buttonText}
-          </a>
-        </div>
-      </section>
-      <section
-        className="hero"
-        style={
-          {
-            //backgroundImage: `url(${data.datoCmsHome.heroBackground.fluid.src})`,
-          }
-        }
-      >
-        <img
-          src="https://cdn.shopify.com/s/files/1/0521/0429/8677/products/GrlPwr_1024x1024.png?v=1615091654"
-          className="hero__img"
-        />
-        <div className="hero__content">
-          <div className="hero__text">
-            <h2>Women's History Month Stickers Available!</h2>
-            <p>Help us raise money for women in need this month.</p>
+          <div className="home-hero__buy">
+            <div className="home-hero__buy--price">
+              $3.89<span>ea</span>
+            </div>
+            <input
+              type="number"
+              name="quantity"
+              placeholder="QTY"
+              onChange={handleChange}
+            ></input>
+            <a
+              href={`${data.datoCmsHome.buttonLink}:${
+                state.quantity ? state.quantity : 1
+              }`}
+              className="hero__cta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {data.datoCmsHome.buttonText}
+            </a>
           </div>
-          <Link to="/collections/womens-history-month" className="hero__cta">
-            Learn More
-          </Link>
         </div>
       </section>
       <div className="featured-art">
         <h2 className="featured-art__title">Featured Art</h2>
+        <Masonry className="showcase">
+          {data.allDatoCmsWork.edges.map(({ node: work }) => {
+            return (
+              <div key={work.id} className="featured-art__item">
+                <figure className="card">
+                  <Link to={`/works/${work.slug}`} className="card__image">
+                    <Img fluid={work.coverImage.fluid} />
+                  </Link>
+                  <figcaption className="card__caption">
+                    <h3 className="card__title">
+                      <Link to={`/works/${work.slug}`}>{work.title}</Link>
+                    </h3>
+                  </figcaption>
+                </figure>
+              </div>
+            );
+          })}
+        </Masonry>
         <div className="featured-art__link">
           <Link to="/portfolio">View All &gt;</Link>
         </div>
-        {data.allDatoCmsWork.edges.map(({ node: work }) => {
-          return (
-            <div key={work.id} className="featured-art__item">
-              <figure className="card">
-                <Link to={`/works/${work.slug}`} className="card__image">
-                  <Img fluid={work.coverImage.fluid} />
-                </Link>
-                <figcaption className="card__caption">
-                  <h3 className="card__title">
-                    <Link to={`/works/${work.slug}`}>{work.title}</Link>
-                  </h3>
-                </figcaption>
-              </figure>
-            </div>
-          );
-        })}
       </div>
     </Layout>
   );
@@ -79,7 +87,7 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }, limit: 3) {
+    allDatoCmsWork(sort: { fields: [position], order: ASC }, limit: 6) {
       edges {
         node {
           id

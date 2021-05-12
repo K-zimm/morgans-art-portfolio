@@ -15,3 +15,14 @@
     }
   }
 }
+
+.Stickers {
+  .hero {
+    &__content {
+      width: 100%;
+    }
+  }
+  .collection__content {
+    padding: 0px;
+  }
+}

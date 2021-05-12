@@ -30,12 +30,15 @@ const SingleCollection = ({ data }) => {
   ));
   return (
     <Layout>
-      <article>
+      <article className={data.shopifyCollection.title}>
         <div className="hero">
-          <Img
-            fluid={data.datoCmsCollection.heroImage.fluid}
-            className="hero__img"
-          />
+          {data.datoCmsCollection.heroImage && (
+            <Img
+              fluid={data.datoCmsCollection.heroImage.fluid}
+              className="hero__img"
+            />
+          )}
+
           <div className="hero__content">
             <div
               className="hero__text"

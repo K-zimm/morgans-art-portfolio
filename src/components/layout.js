@@ -77,18 +77,10 @@ const TemplateWrapper = ({ children }) => {
                 </li>
                 <li>
                   <Link
-                    to="/collections/womens-history-month"
+                    to="/collections/stickers"
                     activeClassName="active-link"
                   >
-                    Women's History Month
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/collections/save-the-bees"
-                    activeClassName="active-link"
-                  >
-                    Save The Bees
+                    Stickers
                   </Link>
                 </li>
                 <li>
